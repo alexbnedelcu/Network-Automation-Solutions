@@ -1,6 +1,6 @@
-Topology:
+### Topology:
 
-
+```
                     +-----------+          +-----------+
                     |           |          |           |
                     |  spine1   |          |  spine2   |
@@ -17,13 +17,17 @@ Topology:
                     |   leaf1   |          |   leaf2   |
                     |           |          |           |
                     +-----------+          +-----------+
+```
+### Summary
 
 - The above topology diagram describes a 4 device leaf-spine fabric based on Arista vEOS 4.16.13M, the NMS vm is an Ubuntu 14.04 LTS.
 - All 5 devices were provisioned via vagrant on a windows 10 host.
-- The vagrantfile and hosts file can be found at github.com/ipspace/NetOpsWorkshop/tree/master/topologies/EOS-Leaf-and-Spine
+- The vagrantfile and hosts file can be found [here](https://github.com/ipspace/NetOpsWorkshop/tree/master/topologies/EOS-Leaf-and-Spine).
 - The nms VM has reachability to all 4 switches Management1 interface
-- I've used Ansible raw module to confirm reachability and access to the device information:
+- I've used Ansible raw module to confirm reachability and access to the device information.
 
+### Ansible RAW output
+```
 vagrant@vagrant-ubuntu-trusty-64:/vagrant$ ansible all -i hosts -m raw -a 'show ver'
 spine-1 | SUCCESS | rc=0 >>
 Arista vEOS
@@ -95,3 +99,4 @@ Total memory:           1643592 kB
 Free memory:            56728 kB
 
 Shared connection to 10.0.2.2 closed.
+```
